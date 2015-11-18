@@ -11,9 +11,10 @@ import java.sql.Statement;
 public class KATA5 {
 
       public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        Class.forName("oracle.jdbc.driver.OracleDriver");
-        Connection conecta = DriverManager.getConnection("jdbc:oracle:thin:@10.22.143.90:1521:orcl", "system","orcl");
-        
+        //Class.forName("oracle.jdbc.driver.OracleDriver");
+        //Connection conecta = DriverManager.getConnection("jdbc:oracle:thin:@10.22.143.90:1521:orcl", "system","orcl");
+        Class.forName("org.sqlite.JDBC");
+        Connection conecta = DriverManager.getConnection("jdbc:sqlite:KATA5.DB");
         Statement state = conecta.createStatement();
         String query = "SELECT * FROM PEOPLE";
         ResultSet resultado = state.executeQuery(query);
